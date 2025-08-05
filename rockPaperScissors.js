@@ -1,24 +1,26 @@
-const myMove = process.argv[2]?.toLowerCase();
+const playerMove = process.argv[2]?.toLowerCase();
 const validMoves = ["rock", "paper", "scissors"];
 
 // Check if the player provided  a right move
-if (!validMoves.includes(myMove)) {
+if (!validMoves.includes(playerMove)) {
   console.log("Invalid move! Please choose rock, paper, or scissors.");
   process.exit(1);
 }
 
 const computerMove = validMoves[Math.floor(Math.random() * 3)];
-console.log("You chose " + myMove + ". Computer chose " + computerMove + ".");
+console.log(
+  "You choose " + playerMove + ". Computer chose " + computerMove + "."
+);
 
 // Determine the winner
-if (myMove === computerMove) {
+if (playerMove === computerMove) {
   console.log("It's a draw!");
 } else if (
-  (myMove === "rock" && computerMove === "scissors") ||
-  (myMove === "scissors" && computerMove === "paper") ||
-  (myMove === "paper" && computerMove === "rock")
+  (playerMove === "rock" && computerMove === "scissors") ||
+  (playerMove === "scissors" && computerMove === "paper") ||
+  (playerMove === "paper" && computerMove === "rock")
 ) {
-  console.log("You win!");
+  console.log("You Won!");
 } else {
   console.log("You lose!");
 }
